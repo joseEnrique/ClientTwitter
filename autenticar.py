@@ -2,20 +2,38 @@ import requests
 from lxml import etree
 import oauth2
 
+consumer_key = 'llave que te da twitter'
+consumer_secret = 'secret que te da twitter'
 
-consumer = oauth.Consumer(key="your-twitter-consumer-key", 
-                          secret="your-twitter-consumer-secret")
+request_token_url = 'http://twitter.com/oauth/request_token'
+access_token_url = 'http://twitter.com/oauth/access_token'
+authorize_url = 'http://twitter.com/oauth/authorize'
+
+consumer = oauth.Consumer(consumer_key, consumer_secret)
+client = oauth.Client(consumer)
 
 
-request_token_url = "http://twitter.com/oauth/request_token"
-
-cliente = oauth.Client(consumer)
 
 resp, content = client.request(request_token_url, "GET")
 
 
-print resp
-print content
+request_token = dict(urlparse.parse_qsl(content))
 
 
+
+
+accepted = 'n'
+while accepted.lower() == 'n':
+    accepted = raw_input('Estas autorizando? (s/n) ')
+    oauth_verifier = raw_input('Pon tu pin ')
+
+
+
+token = oauth.Token(request_token['oauth_token'],
+    request_token['oauth_token_secret'])
+token.set_verifier(oauth_verifier)
+client = oauth.Client(consumer, token)
+
+resp, content = client.request(access_token_url, "POST")
+access_token = dict(urlparse.parse_qsl(content))
 
