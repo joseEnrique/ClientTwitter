@@ -1,6 +1,7 @@
 import requests
 from lxml import etree
 import oauth2 as oauth
+import urlparse
 
 consumer_key = 'llave que te da twitter'
 consumer_secret = 'secret que te da twitter'
