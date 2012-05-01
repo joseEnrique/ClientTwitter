@@ -21,7 +21,9 @@ resp, content = client.request(request_token_url, "GET")
 
 request_token = dict(urlparse.parse_qsl(content))
 
-print 
+print  resp
+
+print content
 
 
 #accepted = 'n'
