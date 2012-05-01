@@ -1,6 +1,6 @@
 import requests
 from lxml import etree
-import oauth2
+import oauth2 as oauth
 
 consumer_key = 'llave que te da twitter'
 consumer_secret = 'secret que te da twitter'
@@ -11,6 +11,7 @@ authorize_url = 'http://twitter.com/oauth/authorize'
 
 consumer = oauth.Consumer(consumer_key, consumer_secret)
 client = oauth.Client(consumer)
+
 
 
 
