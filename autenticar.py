@@ -1,3 +1,4 @@
+
 import requests
 from lxml import etree
 import oauth2 as oauth
@@ -21,23 +22,35 @@ resp, content = client.request(request_token_url, "GET")
 
 request_token = dict(urlparse.parse_qsl(content))
 
-print  resp
-
-print content
-
-
-#accepted = 'n'
-#while accepted.lower() == 'n':
-#    accepted = raw_input('Estas autorizando? (s/n) ')
-#    oauth_verifier = raw_input('Pon tu pin ')
 
 
 
-#token = oauth.Token(request_token['oauth_token'],
-#    request_token['oauth_token_secret'])
-#token.set_verifier(oauth_verifier)
-#client = oauth.Client(consumer, token)
 
-#resp, content = client.request(access_token_url, "POST")
-#access_token = dict(urlparse.parse_qsl(content))
+
+
+
+
+token = oauth.Token(request_token['oauth_token'],
+ request_token['oauth_token_secret'])
+
+print token
+
+oauth_verifier = raw_input('Pon tu pin ')
+
+token.set_verifier(oauth_verifier)
+client = oauth.Client(consumer, token)
+
+resp, content = client.request(access_token_url, "POST")
+access_token = dict(urlparse.parse_qsl(content))
+
+url_twittear = 'https://api.twitter.com/1/statuses/update.xml'
+campo = {'status':raw_input ('twittea ')}
+
+
+
+
+
+
+
+
 
