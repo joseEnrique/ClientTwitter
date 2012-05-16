@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+<head>
+<tittle>Formulario - Cliente Twitter</tittle>
+</head>
+<body bgcolor="5cd6fb" text="000000">
+  <h2>Cliente Twitter</h2>
+  <h3>Introduce las credenciales para autenticarte.</h3>
+  <form name="formulario" method="post" action="cgi-bin/credentials.py">
+    <p>Nombre:   <input type="text" name="user"/></p>
+    <p>passwd:   <input type="password" name="pass"/></p>
+    <p><input type="submit" value="Enviar credenciales..."/></p>
+  </form>
+</body>
+</html>
