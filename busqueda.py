@@ -1,15 +1,34 @@
 #!/usr/bin/python
 import cgi
 import cgitb
-import requests
+import oauth2 as oauth
 from lxml import etree
+import urlparse
+
 cgitb.enable() #inicializamos la biblioteca
 print "Content-Type: text/html"     
 print                               
 form = cgi.FieldStorage() # con esto cargamos los datos del formulario
-print "<p>name:", form["user"].value # imprimimos por pantalla el dato user que hemos introducido y se ha guardado en el diccionario 
-print "<p>contrasena:", form["pass"].value # igual que user
-    
+
+consumer_key = 'WoVDyNwvaeJIUzJ7IPo2Q'#raw_input('Consumer key? ')
+consumer_secret = 'BljnBxfEi4sRFS35OVAtee861pi9i1EmAQVjfWQ59ZA'#raw_input('Consumer secret? ')
+
+request_token_url = 'https://api.twitter.com/oauth/request_token'
+access_token_url = 'https://api.twitter.com/oauth/access_token'
+authorize_url = 'https://api.twitter.com/oauth/authorize'
+
+consumer = oauth.Consumer(consumer_key, consumer_secret)
+
+client = oauth.Client(consumer)#creamos el objeto client con el consumer
+
+resp, content = client.request(request_token_url, "GET")#hacemos un get para sacar un token temporal que nos permitira autentificar
+
+request_token = dict(urlparse.parse_qsl(content))#metemos la cadena de content en un diccionario
+
+print '<Ve a la siguiente url:'
+print "%s?oauth_token=%s" % (authorize_url, request_token['oauth_token']) #redirigimos al usuarios a la url para que pueda cojer el pin
+
+
 
 
 
