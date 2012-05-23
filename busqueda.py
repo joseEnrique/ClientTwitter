@@ -25,20 +25,19 @@ resp, content = client.request(request_token_url, "GET")#hacemos un get para sac
 
 request_token = dict(urlparse.parse_qsl(content))#metemos la cadena de content en un diccionario
 
-print '<Ve a la siguiente url:'
-print "%s?oauth_token=%s" % (authorize_url, request_token['oauth_token']) #redirigimos al usuarios a la url para que pueda cojer el pin
+print '<p>Ve a la siguiente url:<a>%s?oauth_token=%s</a></p>' % (authorize_url, request_token['oauth_token']) #redirigimos al usuarios a la url para que pueda cojer el pin
 
-print <html>
-print <head>
-print <title>Introduccion pin</title>
-print </head>
-print <body>
-print <form name="formulario" method="post" action="cgi-bin/busqueda.py">
-print <p>PIN: <input type="text" name="pin"/></p>
-print <p><input type="submit" value="Enviar pin..."/></p>
-print </form>
-print </body>
-print </html>
+print '<html>'
+print '<head>'
+print '<title>Introduccion pin</title>'
+print '</head>'
+print '<body>'
+print '<form name="formulario" method="post" action="cgi-bin/busqueda.py">'
+print '<p>PIN: <input type="text" name="pin"/></p>'
+print '<p><input type="submit" value="Enviar pin..."/></p>'
+print '</form>'
+print '</body>'
+print '</html>'
 
 
 
