@@ -1,5 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
+import cgi
+import cgitb
 import oauth2 as oauth
 import urllib
 import urlparse
@@ -40,7 +42,7 @@ token = oauth.Token(access_token['oauth_token'],access_token['oauth_token_secret
 
 client = oauth.Client(consumer, token)#actualizamos el objeto client con los nuevos token
 
-
+idusuario = access_token['user_id']
 
 while True:
 
@@ -85,8 +87,8 @@ while True:
 
         resp, content = client.request(request_urlhome, 'GET')
         resp_xml = etree.fromstring(content)
-        twits= resp_xml.xpath("/statuses/status/user[id!='562651916']/../text/text()")
-        ids= resp_xml.xpath("/statuses/status/user[id!='562651916']/../id/text()")
+        twits= resp_xml.xpath("/statuses/status/user[id!='%s']/../text/text()" %idusuario)
+        ids= resp_xml.xpath("/statuses/status/user[id!='%s']/../id/text()" % idusuario)
 
         for i in twits:
             print cont,i
