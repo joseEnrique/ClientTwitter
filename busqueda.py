@@ -28,17 +28,17 @@ request_token = dict(urlparse.parse_qsl(content))#metemos la cadena de content e
 print '<Ve a la siguiente url:'
 print "%s?oauth_token=%s" % (authorize_url, request_token['oauth_token']) #redirigimos al usuarios a la url para que pueda cojer el pin
 
-<html>
-<head>
-<title>Introduccion pin</title>
-</head>
-<body>
-<form name="formulario" method="post" action="cgi-bin/busqueda.py">
-<p>PIN: <input type="text" name="pin"/></p>
-<p><input type="submit" value="Enviar pin..."/></p>
-</form>
-</body>
-</html
+print <html>
+print <head>
+print <title>Introduccion pin</title>
+print </head>
+print <body>
+print <form name="formulario" method="post" action="cgi-bin/busqueda.py">
+print <p>PIN: <input type="text" name="pin"/></p>
+print <p><input type="submit" value="Enviar pin..."/></p>
+print </form>
+print </body>
+print </html>
 
 
 
