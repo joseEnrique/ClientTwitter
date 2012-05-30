@@ -1,0 +1,83 @@
+body {
+
+font-family:"Palatino", sans-serif;
+background-color: #E0F8F7;
+}
+
+
+p {
+font-size: 9pt ;
+font-weight: 400;
+
+
+}
+
+
+h2 {
+font-size: 13pt ;
+font-weight: 500;
+}
+
+
+#cabecera {
+background: #1e5574 url('style1.png') no-repeat scroll 0 0;
+height :130px;
+margin:0 auto;
+padding : 0;
+width: 800px;
+
+
+}
+
+
+
+
+#titulo {
+
+margin-left: 400px;
+padding-top: 30px;
+color: white;
+
+}
+
+#container
+{
+clear:right;
+float:right;
+
+}
+
+#cuerpo{
+ float: left; 
+clear:left;
+width:1065px;
+float:right;
+
+ 
+}
+
+#botones{
+float:left; 
+background-color:#A9F5F2 ;
+margin-left:0;
+margin-top:0;
+width:250px;
+
+}
+
+#cuerpo p {
+border-left: 1px solid #ccc;
+border-right: 1px solid #ccc;
+border-top:1px solid #ccc;
+border-bottom:1px solid #ccc;
+background-color:#FFFFFF;
+margin-top:0;
+margin-bottom:0;
+margin-right:263px;
+
+}
+
+#botones p{
+margin-left:50px;
+
+}

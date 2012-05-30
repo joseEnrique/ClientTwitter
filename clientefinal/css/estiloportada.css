@@ -1,0 +1,50 @@
+
+body {
+margin : 0 auto;
+width : 800px;
+font-family:"Palatino", sans-serif;
+background-color: #E0F8F7;
+}
+
+
+
+#cabecera {
+background: #1e5574 url('style1.png') no-repeat scroll 0 0;
+height :130px;
+margin:0;
+padding : 0;
+
+
+}
+
+#titulo {
+
+margin-left: 400px;
+padding-top: 30px;
+color: white;
+
+}
+
+#boton {
+height :200px;
+padding-top: 20px;
+
+}
+
+
+#piedepagina {
+position:absolute; bottom:0;
+font-size: small;
+
+
+}
+
+
+h3{
+ font-size: xx-large;
+ font-family: "Palatino", sans-serif;
+
+}
+
+
+
