@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#Este fichero se encargara de hacer todas las peticiones hasta tener los token de acceso, y los guardara en un archivo que sera llamado desde los demas
 import oauth2 as oauth
 import urlparse
 import urllib
@@ -38,7 +39,7 @@ access_token = dict(urlparse.parse_qsl(content))#aniadimos el contenido al dicci
 
 
 f = open('config.py','w')
-f.write('access_token = %s\n' % repr(access_token))
+f.write('access_token = %s\n' % repr(access_token)) #guardamos los token, nombre, id en el archivo config.py
 f.close()
 
 
