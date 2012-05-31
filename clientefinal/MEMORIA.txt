@@ -1,0 +1,185 @@
+Memorias Proyecto Cliente Twitter En python
+
+Componentes
+-Jose Luis Jaime Gonzalez
+-Jose Enrique Ruiz Navarro
+-Alberto Cardona Ruiz
+
+
+
+
+Objetivos:
+
+Realizar un Cliente twitter usando la API que proporciona twitter en codigo python. Manejando la informacion en xml y tratandola con xpath.
+
+La aplicación podrá hacer:
+
+Ver tu timeline.
+Escribir twits.
+Hacer un retwet.
+Mostrar la lista de personas a las que sigues.
+Poder seguir a alguien.
+
+
+
+
+
+Conocimientos previos:
+
+Hemos tenido que estudiar el funcionamiento de oauth, como se implementa con la API de twiter, y con código python.
+Como hacer peticiones GET y POST
+
+
+
+
+
+
+Lista de Archivos:
+
+
+guardartoken.py:
+
+Este archivo se encarga de hacer las peticiones de los token, estos son temporales y nos sirven para que el usuario pueda autenticarlos, una vez obtenidos estos token temporales se hace que el usuario tenga que ir a un enlace para que reciba un pin que mas tarde ingresara en el programa, con este pin, se vuelven a realizar una petición para recibir esta vez token de acceso que servirán para la autenticación.
+
+Una vez ya tenemos los token de autenticacion los guardamos en un archivo en el cual todos los demas archivos cogeran los token para hacer la autenticación
+No sabemos exactamente la duración de los token pero nunca se nos han caducado.
+
+Despues en cada archivo creamos un objeto Client en el cual le añadimos los token sacados del archivo mas el consumer (que nunca cambia)
+
+
+
+home.py
+
+
+Es el fichero principal en el que se realiza una petición get para ver el timeline que lo vuelca en un html, 
+ademas de varios form donde estan las opciones(escribir twit, retwet etc..)
+
+
+
+escribir.py
+
+Es el fichero que se encarga de escribir los tweet mediante una petición  POST.
+
+
+Follow.py
+
+Es el fichero que se encarga de poder seguir a un usuario en concreto.
+
+
+listaretweet.py
+
+Es un fichero que se encarga de mostrar al usuario los tweet de las personas que sigue, dandole una opción numerica para que elija
+el tweet que quiere retwitear. Este fichero concretamente solo muestra los tweet posibles que puede retwitear obviando los que el usuario ha puesto.
+Nota: Esta característica tiene un bug que no nos ha dado tiempo a solucionar, no permite realizar retweets de otros retweet, esto significa que no 
+puedes retwitear un retweet de alguien que sigues , solo mensajes que ellos escriben.
+
+
+
+retweet.py 
+
+Este es el archivo que se encarga de hacer el retweet a partir de la id recibida en el archivo anterior.
+
+
+
+listafriends.py
+
+Se encarga de mostrar una lista de los usuarios a los que sigues.
+
+
+
+bienvenido.html
+
+Es un simple html con un formulario que permite entrar en la aplicacion. Al ejecutar el boton ejecuta el archivo home.py.
+
+
+Carpeta css
+
+Codigo css para mejorar el aspecto de la aplicación.
+
+
+
+
+INSTALACION DE LA APLICACION
+
+
+
+Archivos necesarios
+
+
+guardartoken.py
+home.py
+follow.py
+escribir.py
+listafriends.py
+listaretweet.py
+retweet.py
+bienvenido.html
+css/
+----estilo.css
+----estiloportada.css
+----style1.png
+
+Apache2
+
+Los siguientes modulos python para que el programa pueda funcionar correctamente.
+
+cgi
+cgitb
+oauth2
+lxml
+urlparse
+urllib
+
+
+Ubicación de cada archivo:
+
+
+Todos los .py deberan ir en /usr/lib/cgi-bin/
+
+la carpeta css y bienvendio.html debera ir en /var/www
+
+
+A estas dos carpetas citadas anteriormente le damos permisos 777, ya que a la hora de copiar los archivos,  generar los ficheros html y el config.py necesitaremos estos permisos. Tal vez no sea la mejor forma de hacerlo pero solo se nos ocurria hacerlo asi.
+
+
+
+Una vez todo hecho, lo primero que debemos ejecutar desde una consola es el fichero guardartoken.py.
+
+- python guardartoken.py
+
+Nos pedirá que ingresemos en una URL donde tendremos que poner nuestro usuario/contraseña, una vez autenticados nos dara un pin
+lo anotaremos y lo pondremos en la consola.
+
+Esto nos ha generado en la misma carpeta un archivo config.py con todo lo necesario para la comunicacion con la API
+
+Ahora deberemos ir a nuestro navegador y poner: http://localhost/bienvenido.html
+
+
+Ya estaremos en el cliente de twitter.
+
+Al pulsar entrar se generará un fichero timelime.html en www con el timeline y las opciones.
+
+Podremos ver en la parte izquierda las opciones antes citadas y explicadas.
+
+
+
+
+
+
+COSAS A MEJORAR (y que no ha dado tiempo)
+
+
+Se podrian agregar nuevas funciones
+Arreglar bugs (solo hemos encontrado 1)
+Mejorar la optimizacion general
+
+
+
+
+
+
+
+
+
+
+
