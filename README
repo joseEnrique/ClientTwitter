@@ -1,8 +1,6 @@
 Memorias Proyecto Cliente Twitter En python
 
 
-
-
 Objetivos:
 
 Realizar un Cliente twitter usando la API que proporciona twitter en codigo python. Manejando la informacion en xml y tratandola con xpath.
@@ -18,13 +16,10 @@ Poder seguir a alguien.
 
 
 
-
 Conocimientos previos:
 
 Hemos tenido que estudiar el funcionamiento de oauth, como se implementa con la API de twiter, y con código python.
 Como hacer peticiones GET y POST
-
-
 
 
 
