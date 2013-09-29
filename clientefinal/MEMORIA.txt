@@ -1,10 +1,5 @@
 Memorias Proyecto Cliente Twitter En python
 
-Componentes
--Jose Luis Jaime Gonzalez
--Jose Enrique Ruiz Navarro
--Alberto Cardona Ruiz
-
 
 
 
